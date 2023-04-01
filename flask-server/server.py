@@ -15,6 +15,9 @@ def members():
 @app.route("/feedback_form")
 def feedback():
     return render_template("feedback_form.html")  
+@app.route("/discovery")
+def discovery_page():
+    return render_template("discovery.html")
 
 if __name__=="__main__":
     app.run(debug=True)
