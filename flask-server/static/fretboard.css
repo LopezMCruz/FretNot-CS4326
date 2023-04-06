@@ -1,0 +1,29 @@
+.fretboard{
+    display: grid;
+    flex-direction: column;
+    
+}
+    .row-1{
+        display: flex;
+    }
+  
+        .cell {
+        flex: 1;
+        height: 50px;
+        border: 1px solid black;
+        text-align: center;
+        cursor: pointer;
+        background-color: aqua;
+        }
+        .cell.active {
+            background-color: yellow;
+        }
+        .cell:not(.active) {
+            background-color: aqua;
+        }
+        .row-2{
+            display: flex;
+        }
+        
+  
+    

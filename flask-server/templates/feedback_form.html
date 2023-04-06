@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    
+    background-color: #1491b4;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #1491b4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #1885e4;
+  color: white;
+  padding: 12px 20px;
+  border-color: #04233f;
+  cursor: pointer;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 1%;
+}
+</style>
+</head>
+<body>
+
+<h2>Feedback Form</h2>
+
+<div class="container">
+  <form action="https://formsubmit.co/djfox232@gmail.com" method="POST" />
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Enter first name">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Enter last name">
+    
+    <label for="email">Email Address</label>
+    <input type="text" id="email" name="email address" placeholder="Enter email address">
+
+    <label for="experience">Guitar experience level</label>
+    <select id="experience" name="experience level">
+      <option value="novice">Novice</option>
+      <option value="beginner">Beginner</option>
+      <option value="midlevel">Mid-level</option>
+      <option value="advanced">Advanced</option>
+      <option value="Expert">Expert</option>
+    </select>
+    <label for="challange">Difficulty level of using application (1 being easy 10 being hard)</label>
+    <select id="experience" name="experience level">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+
+    <label for="request">Request and opinions</label>
+    <textarea id="request" name="request" placeholder="Input here" style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
