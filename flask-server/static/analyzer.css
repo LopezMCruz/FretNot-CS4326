@@ -1,0 +1,28 @@
+.keychanger{
+    display: none;
+    padding-right: 800px;
+  }
+  .tablist{
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  .tab{
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 0px;
+    
+  }
+  #analyzer{
+    background-color: yellow;
+    grid-column: 1/4;
+    text-align: center;
+    border: 1px solid;
+  }
+  #discovery{
+    background-color: aqua;
+    
+    grid-column: 4/7;
+    text-align: center;
+    border: 1px solid;
+  }
