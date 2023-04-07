@@ -106,3 +106,17 @@ body {
     top: 208px;
     transform: translate(-140%, 50%);
 }
+
+.note-fret.selected:before,
+.note-fret:hover:before {
+    content: attr(data-note);
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    line-height: 33px;
+    text-align: center;
+    background: green;
+    z-index: 2;
+    color: #eeee;
+    opacity: 1;
+}
