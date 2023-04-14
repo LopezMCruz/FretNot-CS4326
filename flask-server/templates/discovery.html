@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href='/static/discovery.css'/>
+    <link id="style" rel="stylesheet" href='/static/main.css'/>
+    <script >
+      function swap(sheet){
+        
+         document.getElementById('style').setAttribute('href',sheet);
+      }
+    </script>
 </head>
 <body>
 
 <h2>Discovery</h2>
+<div class="tablist">
+  <div class="tab">
+  
+    <button id="analyzer"onclick="swap('/static/analyzer.css','analyzer')"> Analyzer</button> 
+    <button id="discovery"  onclick="swap('/static/discovery.css','discovery')">Discovery</button>
+  </div>
+  </div>
+  <br>
 
 <div class="keychanger">
   <div class="box1">
