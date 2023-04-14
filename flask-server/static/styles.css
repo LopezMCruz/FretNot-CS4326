@@ -118,3 +118,18 @@ body {
     color: #eeee;
     opacity: 1;
 }
+
+.chord_name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #eee;
+    text-shadow: 1px 1px 1px #000;
+    z-index: 2;
+}

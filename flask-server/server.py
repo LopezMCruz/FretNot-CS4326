@@ -1,5 +1,5 @@
 #from durable.lang import *
-from flask import Flask, request, make_response,render_template, jsonify, redirect, url_for
+from flask import Flask, request, abort,render_template, jsonify, redirect, url_for
 from catalog import chords
 
 app = Flask(__name__)
@@ -16,6 +16,10 @@ def show_chord(chords, value):
 
 # Initialize empty array, an index for every string
 my_array = [None, None, None, None, None, None]
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify("No Chord Found.")
 
 @app.route('/update-array', methods=['POST'])
 def update_array():
@@ -34,9 +38,6 @@ def update_array():
         return jsonify({'chord': new_chord})
     #return jsonify({'chord': new_chord}) #returns a json 
 
-# Initialize empty array, an index for every string
-my_array = [None, None, None, None, None, None]
-
 @app.route('/query', methods=['POST'])
 def query():
     data = request.get_json()
@@ -47,8 +48,17 @@ def query():
     else:
         my_array[index] = note 
     query = ",".join(str(x) for x in my_array if x is not None)
-    print(f"Query: {query}") 
-    return jsonify({'query': query})
+    try:
+        result = chords[query]
+        print(f"{result}")
+        return jsonify({result})
+    except KeyError:
+        abort(500)
+    #new_chord = show_chord(chords, query)
+    #print(f"Query: {query}")
+    #print(f"Chord: {new_chord}")
+    #return jsonify({'query': query})
+
 
 
 @app.route('/selected_note', methods=['POST'])
