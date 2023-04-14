@@ -52,7 +52,6 @@ def get_chord():
     else:
         return jsonify({'chord': new_chord})
 
-
 @app.route("/feedback_form")
 def feedback():
     return render_template("feedback_form.html")  
