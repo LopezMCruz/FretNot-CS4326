@@ -45,18 +45,6 @@ const app = {
                         noteFret.classList.add('selected');
                         selectedNoteFret = noteFret;
                     }
-                    // Send the selected note and index to the Flask server
-                    fetch('/query', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            'note': noteFret.getAttribute('data-note'),
-                            'index': i 
-                        })
-                    });
-                
                 });
 
                 if (i === 0 && singleFretMarkPositions.indexOf(fret) !== -1) {

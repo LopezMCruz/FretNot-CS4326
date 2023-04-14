@@ -34,6 +34,34 @@ def update_array():
         return jsonify({'chord': new_chord})
     #return jsonify({'chord': new_chord}) #returns a json 
 
+# Initialize empty array, an index for every string
+my_array = [None, None, None, None, None, None]
+
+@app.route('/query', methods=['POST'])
+def query():
+    data = request.get_json()
+    note = data['note']
+    index = data['index']
+    if note == my_array[index]:
+        my_array[index] = None
+    else:
+        my_array[index] = note 
+    query = ",".join(str(x) for x in my_array if x is not None)
+    print(f"Query: {query}") 
+    return jsonify({'query': query})
+
+
+@app.route('/selected_note', methods=['POST'])
+def selected_note():
+    data = request.get_json()
+    note = data['note']
+    index = data['index']
+    
+    # You can now use the note and index as required
+    print(f"Selected note: {note}, String index: {index}")
+
+    return jsonify({'success': True})    
+
 #this is the middle man tha lets the program use the array from /update-array
 @app.route('/update-and-get-chord', methods=['POST'])
 def update_and_get_chord():
@@ -55,13 +83,21 @@ def get_chord():
 @app.route("/feedback_form")
 def feedback():
     return render_template("feedback_form.html")  
+
+
 @app.route("/discovery")
 def discovery_page():
     return render_template("discovery.html")
 
+
 @app.route("/fretboard", methods=['GET','POST'])
 def fretboard():
     return render_template("prototype_fretboard.html")
+
+
+@app.route("/fretNot")
+def new_fretboard():
+    return render_template("index.html")
 
 if __name__=="__main__":
     app.run(debug=True)
