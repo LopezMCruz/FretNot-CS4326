@@ -133,3 +133,12 @@ body {
     text-shadow: 1px 1px 1px #000;
     z-index: 2;
 }
+
+.display-panel {
+    flex: 1;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    background-color: aqua;
+}

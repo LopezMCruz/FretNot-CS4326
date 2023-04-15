@@ -21,22 +21,6 @@ my_array = [None, None, None, None, None, None]
 def internal_error(error):
     return jsonify("No Chord Found.")
 
-@app.route('/update-array', methods=['POST'])
-def update_array():
-    value = request.json['value'] #gets the value from whatever note is active
-    index = int(request.json['index']) #the index represents a string on the fretboard
-    if value == my_array[index]: #this if statement removes the note if it is selected a second time
-        my_array[index] = None
-    else:
-        my_array[index] = value # updates the array with the note ex: [None, E, C, None, A, None]
-    # the array is converted to a string with the 'None' values stripped out
-    query = ",".join(str(x) for x in my_array if x is not None) #ex: ex: [None, E, C, None, A, None] becomes E,C,E
-    new_chord = show_chord(chords, query) #queries catalog.py for matching chords
-    if new_chord == "":
-        return "No Chord Found"
-    else:
-        return jsonify({'chord': new_chord})
-    #return jsonify({'chord': new_chord}) #returns a json 
 
 @app.route('/query', methods=['POST'])
 def query():
@@ -48,13 +32,13 @@ def query():
     else:
         my_array[index] = note 
     query = ",".join(str(x) for x in my_array if x is not None)
+    print(f"{query}")
     try:
-        result = chords[query]
+        result = str(chords.get(query, "No Chord Found"))
         print(f"{result}")
-        return jsonify({result})
+        return jsonify({'chord': result}) # Change this line to include a key
     except KeyError:
-        abort(500)
-    #new_chord = show_chord(chords, query)
+        abort(500)    #new_chord = show_chord(chords, query)
     #print(f"Query: {query}")
     #print(f"Chord: {new_chord}")
     #return jsonify({'query': query})
@@ -72,11 +56,14 @@ def selected_note():
 
     return jsonify({'success': True})    
 
-#this is the middle man tha lets the program use the array from /update-array
 @app.route('/update-and-get-chord', methods=['POST'])
 def update_and_get_chord():
-    update_array()
-    return redirect(url_for('get_chord'))
+    query = ",".join(str(x) for x in my_array if x is not None)
+    result = chords[query]    
+    try:
+        return jsonify({'chord': result})
+    except KeyError:
+        abort(500)
 
 # dulplicate code is because the chord name needs to be calculated 
 # everytime the chord is updated. This will need to be rewritten
@@ -84,11 +71,12 @@ def update_and_get_chord():
 @app.route('/get_chord')
 def get_chord():
     query = ",".join(str(x) for x in my_array if x is not None) 
-    new_chord = show_chord(chords, query)
-    if new_chord == "":
-        return "No Chord Found"
-    else:
-        return jsonify({'chord': new_chord})
+    try:
+        result = chords[query]
+        print(f"{result}")
+        return jsonify({'chord': result})
+    except KeyError:
+        abort(500)
 
 @app.route("/feedback_form")
 def feedback():

@@ -9,8 +9,6 @@ const guitarTuning = [4, 11, 7, 2, 9, 4];
 const singleFretMarkPositions = [3, 5, 7, 9, 15, 17, 19, 21];
 const doubleFretMarkPositions = [12, 24];
 
-
-
 const app = {
     init(){
         this.setup();
@@ -55,8 +53,12 @@ const app = {
                             'note': noteFret.getAttribute('data-note'),
                             'index': i 
                         })
-                    });
-                
+                    }).then (response => response.json())
+                      .then (data => {
+                        document.getElementById('chord-name').innerHTML = data.chord;
+                        
+                      });
+                    
                 });
 
                 if (i === 0 && singleFretMarkPositions.indexOf(fret) !== -1) {
@@ -72,8 +74,6 @@ const app = {
         }
     },
 
-
-
     createNoteNames(noteIndex){
         noteIndex = noteIndex %  12; 
         let noteName;
@@ -83,11 +83,7 @@ const app = {
             noteName = notesSharp[noteIndex];
         }
         return noteName;
-    },
-
-    // setupHover(){
-    //     fretboard.addEventListener('mouseover', (event))
-    // }
+    }
 }
 
 const tools = {
