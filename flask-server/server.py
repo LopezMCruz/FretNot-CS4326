@@ -35,7 +35,6 @@ def query():
 def discover():
     return render_template("discover.html")
 
-
 @app.route("/feedback_form")
 def feedback():
     return render_template("feedback_form.html")  
@@ -50,18 +49,10 @@ def discovery():
     return render_template("discovery.html")
 
 
-@app.route("/fretboard", methods=['GET','POST'])
-def fretboard():
-    return render_template("prototype_fretboard.html")
-
-
-@app.route("/fretNot")
-def new_fretboard():
-    return render_template("index.html")
 
 @app.route("/")
 def home():
-    return render_template("main.html")
+    return render_template("index.html")
 
 if __name__=="__main__":
     app.run(debug=True)

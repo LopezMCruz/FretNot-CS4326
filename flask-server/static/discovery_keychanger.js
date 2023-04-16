@@ -1,3 +1,4 @@
+
 const ids = ['min', 'maj', 'maj7', 'min7', 'aug', 'dom7', 'dim', 'maj9'];
 
 ids.forEach(id => {
@@ -70,4 +71,3 @@ const keyMap = {
       }
     }
   }
-  

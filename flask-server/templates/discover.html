@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link id="style" rel="stylesheet" href="/static/discover.css">
+  <link id="style" rel="stylesheet" href="/static/discovery.css">
 </head>
 <body>
   <h2>FretNot</h2>
-
-  <div id="index">
-    {% include "index.html" %}
+  <div class="tablist">
+    <div class="tab">
+      <a href="{{ url_for('index') }}" id="analyzer">Analyzer</a>
+      <a href="{{ url_for('discover') }}" id="discovery">Discovery</a>
+    </div>
   </div>
 
   <br>
@@ -39,6 +41,14 @@
       <div id="maj9" class="key-type">maj9</div>
     </div>  
   </div>
-  <script src="/static/discover.js"></script>
+
+  <script src="/static/discovery_keychanger.js"></script>
+
+  <div class="fretboard">  <!-- Fretboard class containing 6 string classes + 9 frets for each string -->
+
+  </div>
+
+  <script src="/static/discoveryfret.js"></script>
+
 </body>
 </html>
