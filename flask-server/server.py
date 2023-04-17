@@ -1,11 +1,31 @@
 #from durable.lang import *
 from flask import Flask, request, abort,render_template, jsonify, redirect, url_for
 from catalog import chords
+from key import key
 
 app = Flask(__name__)
 
 # Initialize empty array, an index for every string
 my_array = [None, None, None, None, None, None]
+'''
+@app.route('/get_notes', methods=['GET'])
+def get_notes():
+    note = request.args.get('note')
+    chord = request.args.get('chord')
+    print(f"{note}{chord}")
+    note = str(note)
+    chord = str(chord)
+    # Perform the query in your dictionary and return the result
+    # Example: result = your_dictionary[chord][note]
+    result = (note+chord)  # Replace this with the actual result
+    print(f"{result}")
+    return jsonify(result)
+'''
+
+
+@app.route('/notes', methods=['GET'])
+def get_notes():
+    return jsonify(key)
 
 @app.errorhandler(500)
 def internal_error(error):
@@ -21,6 +41,7 @@ def query():
         my_array[index] = None
     else:
         my_array[index] = note 
+    print(f"{my_array}")
     query = ",".join(str(x) for x in my_array if x is not None)
     print(f"{query}")
     try:

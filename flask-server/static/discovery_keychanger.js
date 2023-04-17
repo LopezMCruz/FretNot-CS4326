@@ -1,5 +1,7 @@
 
 const ids = ['min', 'maj', 'maj7', 'min7', 'aug', 'dom7', 'dim', 'maj9'];
+let selectedNote = null;
+let selectedChord = null;
 
 ids.forEach(id => {
   const element = document.getElementById(id);
@@ -40,7 +42,12 @@ const keyMap = {
         keyMap[k].style.backgroundColor = 'aqua';
       }
     }
+     selectedChord = currentKey;
+     // Check if both a note and a chord are selected, then send the request
+    if (selectedNote && selectedChord) {
+    sendRequest(selectedNote, selectedChord);
   }
+}
 
   const noteMap = {
     'C': document.getElementById('C'),
@@ -70,4 +77,22 @@ const keyMap = {
         noteMap[note].style.backgroundColor = 'aqua';
       }
     }
+    selectedNote = currentNote;
+  
+  // Check if both a note and a chord are selected, then send the request
+  if (selectedNote && selectedChord) {
+    sendRequest(selectedNote, selectedChord);
   }
+}
+
+async function sendRequest(note, chord) {
+  try {
+    const response = await fetch(`/get_notes?note=${note}&chord=${chord}`);
+    const data = await response.json();
+    
+    // Process the data received from the server (e.g., display the result)
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}

@@ -10,8 +10,12 @@ const singleFretMarkPositions = [3, 5, 7, 9, 15, 17, 19, 21];
 const doubleFretMarkPositions = [12, 24];
 
 const app = {
-    init(){
+    init: async function () {
         this.setup();
+        const notesData = await this.fetchNotes();
+        this.highlightNotes(notesData['Cmaj']);
+    
+    
     },
 
     setup() {
@@ -45,6 +49,16 @@ const app = {
         }
     },
 
+    
+
+    fetchNotes: async function () {
+        const response = await fetch('/notes');
+        const notesData = await response.json();
+        return notesData;
+    },
+
+    
+
     createNoteNames(noteIndex){
         noteIndex = noteIndex %  12; 
         let noteName;
@@ -54,7 +68,22 @@ const app = {
             noteName = notesSharp[noteIndex];
         }
         return noteName;
+    },
+
+    highlightNotes: function (fetchedNotes) {
+        const strings = document.querySelectorAll('.string');
+    
+        strings.forEach((string, i) => {
+            if (fetchedNotes[i] !== null) {
+                const noteFret = string.querySelector(`.note-fret[data-note="${fetchedNotes[i]}"]`);
+                if (noteFret) {
+                    noteFret.classList.add('selected');
+                }
+            }
+        });
     }
+    
+    
 }
 
 const tools = {
