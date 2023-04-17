@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Initialize empty array, an index for every string
 my_array = [None, None, None, None, None, None]
-'''
+
 @app.route('/get_notes', methods=['GET'])
 def get_notes():
     note = request.args.get('note')
@@ -15,17 +15,17 @@ def get_notes():
     print(f"{note}{chord}")
     note = str(note)
     chord = str(chord)
-    # Perform the query in your dictionary and return the result
-    # Example: result = your_dictionary[chord][note]
-    result = (note+chord)  # Replace this with the actual result
-    print(f"{result}")
+    chordNote = (note+chord)  # Replace this with the actual result
+    result = key.get(chordNote, None)
+    if result is None:
+        return jsonify({"error": "No Chord Found"})
     return jsonify(result)
-'''
+    
 
 
-@app.route('/notes', methods=['GET'])
-def get_notes():
-    return jsonify(key)
+#@app.route('/notes', methods=['GET'])
+#def get_notes():
+#    return jsonify(key)
 
 @app.errorhandler(500)
 def internal_error(error):
