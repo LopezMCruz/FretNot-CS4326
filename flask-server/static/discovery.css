@@ -283,7 +283,7 @@ body {
 
 .note-fret.selected:before,
 .note-fret:hover:before {
-  content: attr(data-note);
+  content: ""; /* Updated: Remove attr(data-note) */
   width: 33px;
   height: 33px;
   border-radius: 50%;
@@ -294,6 +294,7 @@ body {
   color: #eeee;
   opacity: 1;
 }
+
 
 .chord_name {
   position: absolute;

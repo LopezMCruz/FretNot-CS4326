@@ -4,7 +4,7 @@ key = {
     'Caug' : [None, 'E','C','G#','C',None],
     'Cdim' : ['A','D#', 'C','F#', None, None], # Cdim ['Bbb', 'Eb', 'C', 'Gb', None, None]
     'Cmaj7' : ['E', 'B', 'G', 'E', 'C', None],
-    'Cmin7' : ['G', 'D#', 'C', 'G', 'C', None], # Cmin7 ['Bb', 'Eb', 'G', 'G', 'C', None]
+    'Cmin7' : ['A#', 'D#', 'G', 'G', 'C', None], # Cmin7 ['Bb', 'Eb', 'G', 'G', 'C', None]
     'Cdom7' : ['E', 'C', 'G', 'E', 'C', None], # Cdom7 ['E', 'C', 'Bb', 'E', 'C', None]
     'Cmaj9' : [None, 'D', 'B','E','C', None],
     'Cpmaj' : ['F', 'C#', 'G#', 'F', 'C#', None],
