@@ -1,8 +1,7 @@
 const fretboard = document.querySelector('.fretboard')
 
-const notesFlat = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B", "Cbb", "Dbb", "Ebb", "Fbb", "Gbb", "Abb", "Bbb"];
-const notesSharp = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C##", "D##", "E##", "F##", "G##", "A##", "B##"];
-
+const notesFlat = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+const notesSharp = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const guitarTuning = [4, 11, 7, 2, 9, 4];
 
 const singleFretMarkPositions = [3, 5, 7, 9, 15, 17, 19, 21];
@@ -34,7 +33,7 @@ const app = {
                 noteFret.classList.add('note-fret');
                 string.appendChild(noteFret);
 
-                let noteName = this.createNoteNames(fret + guitarTuning[i], this.accidentals, 0); // Pass 0 as the alteration value
+                let noteName = this.createNoteNames(fret + guitarTuning[i], this.accidentals); // Pass this.accidentals here
                 noteFret.setAttribute('data-note', noteName);
 
 
@@ -57,8 +56,9 @@ const app = {
         // Change accidentals to sharps for augmented chords
         if (chord === 'aug') {
             this.accidentals = 'sharps';
-        } else if (chord === 'dim7' && note === 'C') {
-            this.accidentals = 'flats';
+        }    
+        if (chord == 'maj') {
+            this.accidentals = 'sharps';
         } else {
             // Reset to flats for other chords (if needed)
             this.accidentals = 'flats';
@@ -73,15 +73,14 @@ const app = {
         return data;
     },
     
-    
 
-    createNoteNames(noteIndex, accidentals, alteration) {
+    createNoteNames(noteIndex, accidentals) {
         noteIndex = noteIndex % 12;
         let noteName;
         if (accidentals === 'flats') {
-            noteName = notesFlat[noteIndex + alteration];
+            noteName = notesFlat[noteIndex];
         } else if (accidentals === 'sharps') {
-            noteName = notesSharp[noteIndex + alteration];
+            noteName = notesSharp[noteIndex];
         }
         return noteName;
     },
