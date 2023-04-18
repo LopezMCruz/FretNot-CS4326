@@ -1,3 +1,15 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px; /* Adjust this value to control the space between the fretboard and boxes */
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
 .keychanger{
     
     padding-right: 800px;
@@ -195,8 +207,6 @@ body {
   width: 50%;
   min-width: 723px;
   height: 300px;
-  margin-top: 20%;
-  margin-left: 25%;
 }
 
 .string{
@@ -283,7 +293,7 @@ body {
 
 .note-fret.selected:before,
 .note-fret:hover:before {
-  content: ""; /* Updated: Remove attr(data-note) */
+  content: attr(data-note);
   width: 33px;
   height: 33px;
   border-radius: 50%;
@@ -294,7 +304,6 @@ body {
   color: #eeee;
   opacity: 1;
 }
-
 
 .chord_name {
   position: absolute;
@@ -319,7 +328,3 @@ body {
   cursor: pointer;
   background-color: #00C49A;
 }
-.note-fret.selected:before {
-  background: green;
-}
-
