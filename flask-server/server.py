@@ -1,6 +1,7 @@
 #from durable.lang import *
 from flask import Flask, request, abort,render_template, jsonify, redirect, url_for
 from catalog import chords
+import json
 
 app = Flask(__name__)
 
@@ -22,10 +23,12 @@ def query():
     else:
         my_array[index] = note 
     query = ",".join(str(x) for x in my_array if x is not None)
+    print("q")
     print(f"{query}")
     try:
         result = str(chords.get(query, "No Chord Found"))
         print(f"{result}")
+        
         return jsonify({'chord': result}) # Change this line to include a key
     except KeyError:
         abort(500)  
@@ -38,11 +41,13 @@ def discover():
 
 @app.route("/feedback_form")
 def feedback():
+   
     return render_template("feedback_form.html")  
 
 
 @app.route("/index")
 def index():
+    
     return render_template("index.html")
 
 @app.route("/discovery")
@@ -54,6 +59,11 @@ def discovery():
 def fretboard():
     return render_template("prototype_fretboard.html")
 
+@app.route("/note")
+def note():
+    key = "E7"
+    return render_template(note.html, key=key)
+
 
 @app.route("/fretNot")
 def new_fretboard():
@@ -61,7 +71,9 @@ def new_fretboard():
 
 @app.route("/")
 def home():
+    
     return render_template("main.html")
+
 
 if __name__=="__main__":
     app.run(debug=True)
