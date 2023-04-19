@@ -109,19 +109,23 @@ const keyMap = {
     try {
       const response = await fetch(`/get_notes?note=${note}&chord=${chord}`);
       const data = await response.json();
-      
+        
       // Call the app.highlightNotes function with the fetched data
       app.highlightNotes(data);
-  
+    
       // Update the chord attribute of the <ins> tag
-      
-      chordSoundElement.setAttribute('chord', `${note}:${chord}`);
+      chordSoundElement.setAttribute('chord', `${note}${chord.replace(':', '')}`);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-   }
-   chordSoundElement = document.querySelector('#chordSound');
+    console.log(chordSoundElement.getAttribute('chord'));
+    console.log(chordSoundElement);
 
+  }
+  
+  
+   chordSoundElement = document.querySelector('#chordSound');
+   console.log(chordSoundElement);
 }
 scalesChordsApiScript.addEventListener('load', init);
 document.addEventListener('readystatechange', () => {
