@@ -114,7 +114,10 @@ const keyMap = {
       app.highlightNotes(data);
     
       // Update the chord attribute of the <ins> tag
-      chordSoundElement.setAttribute('chord', `${note}${chord.replace(':', '')}`);
+  chordSoundElement.setAttribute('chord', `${note}${chord.replace(':', '')}`);
+
+  // Update the audio sources with the new chord
+  updateChord(`${note}${chord.replace(':', '')}`);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -127,6 +130,21 @@ const keyMap = {
    chordSoundElement = document.querySelector('#chordSound');
    console.log(chordSoundElement);
 }
+
+function updateChord(chord) {
+  const audioElement = chordSoundElement.querySelector('audio');
+  const sources = audioElement.querySelectorAll('source');
+  const newChord = chord.replace(':', '');
+
+  sources.forEach((source) => {
+    const oldSrc = source.getAttribute('src');
+    const newSrc = oldSrc.replace(/snd-guitar-chord-([A-Za-z0-9#]+)/, `snd-guitar-chord-${newChord}`);
+    source.setAttribute('src', newSrc);
+  });
+
+  audioElement.load();
+}
+
 scalesChordsApiScript.addEventListener('load', init);
 document.addEventListener('readystatechange', () => {
   if (document.readyState === 'complete') {
