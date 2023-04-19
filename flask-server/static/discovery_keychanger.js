@@ -30,13 +30,13 @@ ids.forEach(id => {
 function box2Click(key) {
   const currentKey = Object.keys(keyMap).find(k => keyMap[k] === key);
   if (!currentKey) {
-    key.style.backgroundColor = 'yellow';
+    key.style.backgroundColor = '#B8336A';
     return;
   }
-  key.style.backgroundColor = 'yellow';
+  key.style.backgroundColor = '#B8336A';
   for (const k in keyMap) {
     if (k !== currentKey) {
-      keyMap[k].style.backgroundColor = 'aqua';
+      keyMap[k].style.backgroundColor = '#2B303A';
     }
   }
 }
@@ -44,13 +44,13 @@ function box2Click(key) {
 function box1Click(key) {
   const currentNote = Object.keys(noteMap).find(note => noteMap[note] === key);
   if (!currentNote) {
-    key.style.backgroundColor = 'yellow';
+    key.style.backgroundColor = '#B8336A';
     return;
   }
-  key.style.backgroundColor = 'yellow';
+  key.style.backgroundColor = '#B8336A';
   for (const note in noteMap) {
     if (note !== currentNote) {
-      noteMap[note].style.backgroundColor = 'aqua';
+      noteMap[note].style.backgroundColor = '#2B303A';
     }
   }
 }

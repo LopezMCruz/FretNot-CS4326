@@ -1,32 +1,57 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto; /* Add another 'auto' to account for the tablist row */
+    gap: 20px; /* Adjust this value to control the space between the rows */
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
 .keychanger{
     
     padding-right: 800px;
   }
 
-.tablist{
-  padding-left: 200px;
-  padding-right: 200px;
-}
+  .tablist {
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: -400px;
+    border-radius: 5px;
+  }
+
 .tab{
-  background-color: aqua;
+    background: #272424;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   gap: 0px;
+  width: 50%;
+    min-width: 723px;
   
 
 }
 #analyzer{
-  background-color: aqua;
+    background: #B8336A;
+
+    color: white;
+
   grid-column: 1/4;
   text-align: center;
   border: 1px solid;
+  height: 40px;
+  
 }
 #discovery{
-  background-color: yellow;
-  
+    color: white;
+    background-color: #2B303A;
+
   grid-column: 4/7;
   text-align: center;
   border: 1px solid;
+  height: 40px;
 }
 
 * {
@@ -46,8 +71,11 @@ body {
     width: 50%;
     min-width: 723px;
     height: 300px;
-    margin-top: 20%;
-    margin-left: 25%;
+    margin-top: -380px; /* Add this line to move the fretboard up */
+
+      margin-left: 25%;
+
+    
 }
 
 .string{
