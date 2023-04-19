@@ -9,6 +9,8 @@ app = Flask(__name__)
 # Initialize empty array, an index for every string
 my_array = [None, None, None, None, None, None]
 
+
+
 @app.route('/get_notes', methods=['GET'])
 def get_notes():
     note = request.args.get('note')

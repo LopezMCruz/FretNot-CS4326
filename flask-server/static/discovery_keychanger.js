@@ -1,3 +1,20 @@
+let chordSoundElement;
+
+const scalesChordsApiScript = document.querySelector('script[src="https://www.scales-chords.com/api/scales-chords-api.js"]');
+
+scalesChordsApiScript.addEventListener('load', () => {
+  console.log('scales-chords API script loaded');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM content loaded');
+  init();
+});
+function init(){
+  console.log('Init function called');
+
+
+
 const notes = ['C', 'Cp', 'Db', 'D', 'Dp', 'Eb', 'E', 'F', 'Fp', 'Gb', 'G', 'Gp', 'Ab'];
 const ids = ['min', 'maj', 'maj7', 'min7', 'aug', 'dom7', 'dim', 'maj9'];
 let selectedNote = null;
@@ -8,6 +25,7 @@ let selectedChord = null;
 notes.forEach(note => {
   const element = document.getElementById(note);
   element.addEventListener('click', () => {
+    console.log('Note button clicked:', note);
     box1Click(element);
     selectedNote = note;
     if (selectedNote && selectedChord) {
@@ -19,6 +37,7 @@ notes.forEach(note => {
 ids.forEach(id => {
   const element = document.getElementById(id);
   element.addEventListener('click', () => {
+    console.log('Note button clicked:', id);
     box2Click(element);
     selectedChord = id;
     if (selectedNote && selectedChord) {
@@ -93,9 +112,20 @@ const keyMap = {
       
       // Call the app.highlightNotes function with the fetched data
       app.highlightNotes(data);
+  
+      // Update the chord attribute of the <ins> tag
+      
+      chordSoundElement.setAttribute('chord', `${note}:${chord}`);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+   }
+   chordSoundElement = document.querySelector('#chordSound');
+
+}
+scalesChordsApiScript.addEventListener('load', init);
+document.addEventListener('readystatechange', () => {
+  if (document.readyState === 'complete') {
+    init();
   }
-  
-  
+});
