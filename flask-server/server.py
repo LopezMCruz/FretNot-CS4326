@@ -5,12 +5,10 @@ from catalog import chords
 from key import key
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key_here"  # Replace with your own secret key
 
 
 # Initialize empty array, an index for every string
 my_array = [None, None, None, None, None, None]
-
 
 
 @app.route('/get_notes', methods=['GET'])
@@ -52,8 +50,6 @@ def query():
     except KeyError:
         abort(500)  
 
-
-#
 
 @app.route("/discover")
 def discover():
