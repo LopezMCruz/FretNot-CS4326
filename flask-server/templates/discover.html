@@ -48,8 +48,16 @@
           <div id="maj9" class="key-type">maj9</div>
           
         </div>  
-        <ins id="chordSound" class="scales_chords_api" chord="C" instrument="guitar" output="sound" ></ins>
+        
+        <div class="sound-container">
+          <ins id="chordSound" class="scales_chords_api" chord="C" instrument="guitar" output="sound" ></ins>
+        </div>
       </div>
+      <div class="feedback-container">
+        <a href="{{ url_for('feedback') }}" id="feedback">Feedback</a>
+      </div>
+
+      
      
     <script type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
     </div>

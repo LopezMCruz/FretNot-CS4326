@@ -193,3 +193,8 @@ body {
     margin-top: -80px;
     cursor: pointer;
 }
+.feedback-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

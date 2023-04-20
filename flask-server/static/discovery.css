@@ -348,18 +348,23 @@ body {
   }
 
   #chordSound {
-    position: relative;
-    display: inline-block;
-    margin-left: -25px; /* Adjust this value as needed */
-    vertical-align: middle;
+   
   }
 
-  .scales_chords_api button {
-    position: relative;
-    left: 25px; /* Adjust this value as needed */
+
+  .feedback-container {
+    text-align: center;
+    margin-top: 20px;
   }
   
-
+  .sound-container {
+    
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    size: 80px;
+  }
 
 #C, #Cs, #Db, #D, #Ds, #Eb, #E, #F, #Fs, #Gb, #G, #Gs, #Ab, #maj, #maj7, #m, #m7, #aug, #dom7, #dim, #maj9 {
   border-radius: 5px;

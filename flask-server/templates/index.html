@@ -17,20 +17,29 @@
         </div>
       </div>
       
+    
 
     <div class="fretboard">  <!-- Fretboard class containing 6 string classes + 9 frets for each string -->
 
     </div>
-
+     <!-- Add the feedback form link here -->
     <div class="display-panel">
         <p id="chord-name"></p>
     </div>
+    <!-- Add the feedback form link here -->
+    <div class="feedback-container">
+      <a href="{{ url_for('feedback') }}" id="feedback">Feedback</a>
+    </div>
+
+   
   </div>
     <script src="/static/app.js"></script>
 
-    <p><ins class="scales_chords_api" chord="maj" instrument="guitar" output="sound" ></ins></p>
+    <p><ins class="scales_chords_api" chord="Cmaj" instrument="guitar" output="sound" ></ins></p>
 
     <h2></h2>
     <script async type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
+
+    
 </body>
 </html>
