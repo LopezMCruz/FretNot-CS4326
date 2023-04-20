@@ -15,8 +15,8 @@ function init(){
 
 
 
-const notes = ['C', 'Cp', 'Db', 'D', 'Dp', 'Eb', 'E', 'F', 'Fp', 'Gb', 'G', 'Gp', 'Ab'];
-const ids = ['min', 'maj', 'maj7', 'min7', 'aug', 'dom7', 'dim', 'maj9'];
+const notes = ['C', 'Cs', 'Db', 'D', 'Ds', 'Eb', 'E', 'F', 'Fs', 'Gb', 'G', 'Gs', 'Ab'];
+const ids = ['m', 'maj', 'maj7', 'm7', 'aug', 'dom7', 'dim', 'maj9'];
 let selectedNote = null;
 let selectedChord = null;
 
@@ -77,8 +77,8 @@ function box1Click(key) {
 const keyMap = {
     'maj': document.getElementById('maj'),
     'maj7': document.getElementById('maj7'),
-    'min': document.getElementById('min'),
-    'min7': document.getElementById('min7'),
+    'm': document.getElementById('m'),
+    'm7': document.getElementById('m7'),
     'aug': document.getElementById('aug'),
     'dom7': document.getElementById('dom7'),
     'dim': document.getElementById('dim'),
@@ -89,17 +89,17 @@ const keyMap = {
 
   const noteMap = {
     'C': document.getElementById('C'),
-    'Cp': document.getElementById('Cp'),
+    'Cs': document.getElementById('Cs'),
     'Db': document.getElementById('Db'),
     'D': document.getElementById('D'),
-    'Dp': document.getElementById('Dp'),
+    'Ds': document.getElementById('Ds'),
     'Eb': document.getElementById('Eb'),
     'E': document.getElementById('E'),
     'F': document.getElementById('F'),
-    'Fp': document.getElementById('Fp'),
+    'Fs': document.getElementById('Fs'),
     'Gb': document.getElementById('Gb'),
     'G': document.getElementById('G'),
-    'Gp': document.getElementById('Gp'),
+    'Gs': document.getElementById('Gs'),
     'Ab': document.getElementById('Ab')
   };
   

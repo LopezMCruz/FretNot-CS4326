@@ -1,5 +1,4 @@
-from flask import Flask, request, abort,render_template, jsonify, redirect, url_for
-import requests
+from flask import Flask, request, abort,render_template, jsonify
 from catalog import chords
 from key import key
 
