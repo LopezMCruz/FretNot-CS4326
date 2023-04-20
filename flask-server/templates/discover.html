@@ -4,51 +4,59 @@
   <link id="style" rel="stylesheet" href="/static/discovery.css">
 </head>
 <body>
-  <h2>FretNot</h2>
+  <div class="main-container">
   <div class="tablist">
+    
     <div class="tab">
       <a href="{{ url_for('index') }}" id="analyzer">Analyzer</a>
       <a href="{{ url_for('discover') }}" id="discovery">Discovery</a>
     </div>
   </div>
-
-  <br>
-  <div class="keychanger">
-    <div class="box1">
-      <div id="C" class="key" alt="C">C</div>
-      <div id="Cp" class="key" alt="C#">C#</div>
-      <div id="Db" class="key" alt="Db">Db</div>
-      <div id="D" class="key" class="key" alt="D">D</div>
-      <div id="Dp" class="key" alt="D#">D#</div>
-      <div id="Eb" class="key" alt="Eb">Eb</div>
-      <div id="E" class="key" alt="E">E</div>
-      <div id="F" class="key" alt="F">F</div>
-      <div id="Fp" class="key" alt="F#">F#</div>
-      <div id="Gb" class="key" alt="Gb">Gb</div>
-      <div id="G" class="key" alt="G">G</div>
-      <div id="Gp" class="key" alt="G#">G#</div>
-      <div id="Ab" class="key" alt="Ab">Ab</div>
-    </div>
-    <br>
-    <div class="box2">
-      <div id="min" class="key-type">min</div>
-      <div id="min7" class="key-type">min7</div>
-      <div id="maj" class="key-type">maj</div>
-      <div id="maj7" class="key-type">maj7</div>
-      <div id="aug" class="key-type">aug</div>
-      <div id="dom7" class="key-type">dom7</div>
-      <div id="dim" class="key-type">dim</div>
-      <div id="maj9" class="key-type">maj9</div>
-    </div>  
-  </div>
-
-  <script src="/static/discovery_keychanger.js"></script>
-
+  
   <div class="fretboard">  <!-- Fretboard class containing 6 string classes + 9 frets for each string -->
 
   </div>
 
   <script src="/static/discoveryfret.js"></script>
+    <!-- Boxes HTML goes here -->
+    <div class="boxes">
+      <div class="keychanger">
+        <div class="box1">
+          <div id="C" class="key" alt="C">C</div>
+          <div id="Cp" class="key" alt="C#">C#</div>
+          <div id="Db" class="key" alt="Db">Db</div>
+          <div id="D" class="key" class="key" alt="D">D</div>
+          <div id="Dp" class="key" alt="D#">D#</div>
+          <div id="Eb" class="key" alt="Eb">Eb</div>
+          <div id="E" class="key" alt="E">E</div>
+          <div id="F" class="key" alt="F">F</div>
+          <div id="Fp" class="key" alt="F#">F#</div>
+          <div id="Gb" class="key" alt="Gb">Gb</div>
+          <div id="G" class="key" alt="G">G</div>
+          <div id="Gp" class="key" alt="G#">G#</div>
+          <div id="Ab" class="key" alt="Ab">Ab</div>
+        </div>
+        <br>
+        <div class="box2">
+          <div id="min" class="key-type">min</div>
+          <div id="min7" class="key-type">min7</div>
+          <div id="maj" class="key-type">maj</div>
+          <div id="maj7" class="key-type">maj7</div>
+          <div id="aug" class="key-type">aug</div>
+          <div id="dom7" class="key-type">dom7</div>
+          <div id="dim" class="key-type">dim</div>
+          <div id="maj9" class="key-type">maj9</div>
+          
+        </div>  
+        <ins id="chordSound" class="scales_chords_api" chord="F" instrument="guitar" output="sound" ></ins>
+      </div>
+     
+    <script type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
+    </div>
+    
 
+    
+    <script src="/static/discovery_keychanger.js"></script>
+  </div>
 </body>
 </html>

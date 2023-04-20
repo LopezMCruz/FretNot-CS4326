@@ -104,13 +104,13 @@
   
   .note-fret.selected:before,
   .note-fret:hover:before {
-    content: attr(data-note);
+    content: "";
     width: 33px;
     height: 33px;
     border-radius: 50%;
     line-height: 33px;
     text-align: center;
-    background: green;
+    background: #B8336A;
     z-index: 2;
     color: #eeee;
     opacity: 1;

@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <div class="main-container">
     <div class="tablist">
         <div class="tab">
           <a href="{{ url_for('index') }}" id="analyzer">Analyzer</a>
@@ -24,7 +25,12 @@
     <div class="display-panel">
         <p id="chord-name"></p>
     </div>
-
+  </div>
     <script src="/static/app.js"></script>
+
+    <p><ins class="scales_chords_api" chord="maj" instrument="guitar" output="sound" ></ins></p>
+
+    <h2></h2>
+    <script async type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
 </body>
 </html>

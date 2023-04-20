@@ -1,32 +1,58 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto; /* Add another 'auto' to account for the tablist row */
+    gap: 20px; /* Adjust this value to control the space between the rows */
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
 .keychanger{
     
     padding-right: 800px;
   }
 
-.tablist{
-  padding-left: 200px;
-  padding-right: 200px;
-}
+  .tablist {
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: -400px;
+    font-size: 1.5vw; /* Add this line to make the font size scale with the viewport width */
+    border-radius: 5px;
+  }
+
 .tab{
-  background-color: aqua;
+    background: #272424;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   gap: 0px;
+  width: 50%;
+    min-width: 723px;
   
 
 }
 #analyzer{
-  background-color: aqua;
+    background: #B8336A;
+
+    color: white;
+
   grid-column: 1/4;
   text-align: center;
   border: 1px solid;
+  height: 40px;
+  
 }
 #discovery{
-  background-color: yellow;
-  
+    color: white;
+    background-color: #2B303A;
+
   grid-column: 4/7;
   text-align: center;
   border: 1px solid;
+  height: 40px;
 }
 
 * {
@@ -46,8 +72,11 @@ body {
     width: 50%;
     min-width: 723px;
     height: 300px;
-    margin-top: 20%;
-    margin-left: 25%;
+    margin-top: -380px; /* Add this line to move the fretboard up */
+
+      margin-left: 25%;
+
+    
 }
 
 .string{
@@ -134,38 +163,33 @@ body {
 
 .note-fret.selected:before,
 .note-fret:hover:before {
-    content: attr(data-note);
+    content: "";
     width: 33px;
     height: 33px;
     border-radius: 50%;
     line-height: 33px;
     text-align: center;
-    background: green;
+    background:  #B8336A;
     z-index: 2;
     color: #eeee;
     opacity: 1;
 }
 
-.chord_name {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: #eee;
-    text-shadow: 1px 1px 1px #000;
-    z-index: 2;
-}
 
 .display-panel {
-    flex: 1;
-    height: 50px;
-    border: 1px solid black;
-    text-align: center;
+    font-size: 48px;
+    justify-content: center;
+
+
+    background-color: #2B303A;
+    border: white;
+    display: grid;
+    justify-content: center;
+    color: white;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 0px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: -80px;
     cursor: pointer;
-    background-color: #00C49A;
 }
