@@ -198,7 +198,7 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     gap: 0px;
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: -80px; /* Add this line to move the fretboard up */
     color: white;
     border-radius: 5px;
@@ -294,7 +294,7 @@ body {
     border: 1px solid;
     gap: 0px;
     color: white;
-    margin-left: 50%;
+    margin-left: 40%;
     border-radius: 5px;
     
   }
@@ -345,6 +345,19 @@ body {
     border: 1px solid;
     text-align: center;
   }
+
+  #chordSound {
+    position: relative;
+    display: inline-block;
+    margin-left: -25px; /* Adjust this value as needed */
+    vertical-align: middle;
+  }
+
+  .scales_chords_api button {
+    position: relative;
+    left: 25px; /* Adjust this value as needed */
+  }
+  
 
 
 #C, #Cp, #Db, #D, #Dp, #Eb, #E, #F, #Fp, #Gb, #G, #Gp, #Ab, #maj, #maj7, #min, #min7, #aug, #dom7, #dim, #maj9 {
