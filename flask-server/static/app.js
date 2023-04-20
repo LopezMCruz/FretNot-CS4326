@@ -56,6 +56,12 @@ const app = {
                     }).then (response => response.json())
                       .then (data => {
                         document.getElementById('chord-name').innerHTML = data.chord;
+                        chord_API=document.querySelector('.scales_chords_api');
+                        console.log(chord_API)
+                        chord_API.setAttribute('chord', "C")
+                        chord_API.removeAttribute('id')
+                        
+                        console.log(chord_API)
                         
                       });
                     

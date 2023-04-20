@@ -1,4 +1,3 @@
-#from durable.lang import *
 from flask import Flask, request, abort,render_template, jsonify, redirect, url_for
 import requests
 from catalog import chords
@@ -41,6 +40,7 @@ def query():
         my_array[index] = note 
     print(f"{my_array}")
     query = ",".join(str(x) for x in my_array if x is not None)
+    print("q")
     print(f"{query}")
     try:
         result_dict = chords.get(query, {"chord": "No Chord Found"})
@@ -57,11 +57,13 @@ def discover():
 
 @app.route("/feedback_form")
 def feedback():
+   
     return render_template("feedback_form.html")  
 
 
 @app.route("/index")
 def index():
+    
     return render_template("index.html")
 
 @app.route("/discovery")
@@ -71,6 +73,7 @@ def discovery():
 @app.route("/")
 def home():
     return render_template("discover.html")
+
 
 if __name__=="__main__":
     app.run(debug=True)
