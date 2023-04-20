@@ -5,6 +5,8 @@ from catalog import chords
 from key import key
 
 app = Flask(__name__)
+app.secret_key = "your_secret_key_here"  # Replace with your own secret key
+
 
 # Initialize empty array, an index for every string
 my_array = [None, None, None, None, None, None]
@@ -25,11 +27,6 @@ def get_notes():
     return jsonify(result)
     
 
-
-#@app.route('/notes', methods=['GET'])
-#def get_notes():
-#    return jsonify(key)
-
 @app.errorhandler(500)
 def internal_error(error):
     return jsonify("No Chord Found.")
@@ -48,12 +45,15 @@ def query():
     query = ",".join(str(x) for x in my_array if x is not None)
     print(f"{query}")
     try:
-        result = str(chords.get(query, "No Chord Found"))
+        result_dict = chords.get(query, {"chord": "No Chord Found"})
+        result = result_dict['chord']
         print(f"{result}")
-        return jsonify({'chord': result}) # Change this line to include a key
+        return jsonify({'chord': f"Chord: {result}"})
     except KeyError:
         abort(500)  
 
+
+#
 
 @app.route("/discover")
 def discover():
@@ -72,11 +72,9 @@ def index():
 def discovery():
     return render_template("discovery.html")
 
-
-
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("discover.html")
 
 if __name__=="__main__":
     app.run(debug=True)

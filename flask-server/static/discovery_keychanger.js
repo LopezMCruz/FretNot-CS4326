@@ -129,6 +129,9 @@ const keyMap = {
   
    chordSoundElement = document.querySelector('#chordSound');
    console.log(chordSoundElement);
+
+  noteMap['C'].click();
+  keyMap['maj'].click();
 }
 
 function updateChord(chord) {
