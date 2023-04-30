@@ -1,7 +1,7 @@
 chords = {
-'Bb,G,Ab,C,G':{'chord':'A#'}, #2
-'Bb,Ab,C,G,G':{'chord':'A#'},
-'Bb,Ab,G,G,C':{'chord':'A#'},
+'Bb,G,Ab,C,G':{'chord':'A#13'}, #2
+'Bb,Ab,C,G,G':{'chord':'A#13'},
+'Bb,Ab,G,G,C':{'chord':'A#13'},
 'Bb,G,Ab,Db,F':{'chord':'A#7(#9)'},
 'Bb,G,Ab,Db,F':{'chord':'A#7(#9)'},
 'Bb,F,Ab,G,F,Db':{'chord':'A#7(#9)'},
