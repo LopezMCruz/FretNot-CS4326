@@ -1,6 +1,6 @@
-# FretNot-CS4326
+#  FretNot-CS4326
 
-Live demo: https://youtu.be/Rjoju-Vq1EI
+Live demo:  https://youtu.be/Rjoju-Vq1EI
 
 CS 4326 Human Factors - FretNot
 An app for analyzing chords based on note input:
